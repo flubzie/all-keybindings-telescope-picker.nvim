@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "all-keybindings-telescope-picker-nvim"
+version = "0.1.0"
+description = ""
+authors = ["flubzie <0xflubzie@gmail.com>"]
+readme = "README.md"
+packages = [{include = "all_keybindings_telescope_picker"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+bs4 = "^0.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
