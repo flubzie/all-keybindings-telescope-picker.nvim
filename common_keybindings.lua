@@ -1236,3 +1236,4 @@ local common_vim_keybindings = {
     { mode = "Visual", lhs = ":z", desc = "print some lines" },
     { mode = "Visual", lhs = ":~", desc = "repeat last \":substitute\"" },
 }
+return common_vim_keybindings

@@ -16,7 +16,16 @@ local function telescope_vim_keybindings()
 
   local common_vim_keybindings = require('common_keybindings')
 
-  for _, binding in ipairs(common_vim_keybindings) do
+  local additional_keybindings = {
+    { mode = "Normal", lhs = "<C-q>", desc = "In Telescope: Add selections to quickfix list" },
+    { mode = "Ex", lhs = ":%s/old_word/new_word/cg", desc = "Search and replace with confirmation in current buffer" },
+    { mode = "Ex", lhs = ":cdo s/old_word/new_word/cg", desc = "Execute command on each entry in quickfix list" },
+    { mode = "Ex", lhs = ":cfdo s/old_word/new_word/cg", desc = "Execute command on each file in quickfix list" },
+  }
+
+  local all_keybindings = vim.tbl_deep_extend("force", {}, common_vim_keybindings, additional_keybindings)
+
+  for _, binding in ipairs(all_keybindings) do
     table.insert(keybindings, binding)
     max_len_lhs = math.max(max_len_lhs, #binding.lhs)
     max_len_mode = math.max(max_len_mode, #binding.mode)

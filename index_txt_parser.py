@@ -61,6 +61,8 @@ def parse_vim_keybindings(input_file, output_file):
         for binding in keybindings:
             file.write(f"    {binding},\n")
         file.write("}\n")
+        # Add the return statement at the end
+        file.write("return common_vim_keybindings\n")
 
 # Call the function with the paths to the input and output files
 parse_vim_keybindings('index.txt', 'common_keybindings.lua')
